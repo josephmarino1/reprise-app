@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild -project SpotifyAutoResume.xcodeproj -scheme SpotifyAutoResume -configuration Debug build)",
+      "Bash(python3 /tmp/make_icon.py)",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -c \"from PIL import Image; print\\(''''PIL OK''''\\)\")",
+      "Bash(PYTHONPATH=\"/Users/josephmarino/Library/Python/3.9/lib/python/site-packages:$PYTHONPATH\" python3 /tmp/make_icon.py)"
+    ]
+  }
+}
