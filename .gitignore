@@ -2,11 +2,12 @@
 build/
 DerivedData/
 *.xcarchive
+*.app/
+
+# User-specific Xcode settings
 *.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
 *.xcodeproj/project.xcworkspace/xcuserdata/
-
-# User-specific Xcode settings
 *.xcuserstate
 *.xccheckout
 
@@ -17,9 +18,6 @@ DerivedData/
 
 # Claude
 .claude/
-
-# macOS user data
-.DS_Store
 
 # Dependency managers (if added later)
 Pods/
