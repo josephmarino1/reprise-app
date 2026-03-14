@@ -18,6 +18,9 @@ DerivedData/
 # Claude
 .claude/
 
+# macOS user data
+.DS_Store
+
 # Dependency managers (if added later)
 Pods/
 .build/
