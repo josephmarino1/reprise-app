@@ -220,13 +220,13 @@ struct MenuBarView: View {
                 Label("Spotify access", systemImage: "lock.shield")
                     .font(.subheadline)
                 Spacer()
-                Button("Re-prompt") {
+                Button("Open Settings") {
                     Task { await SpotifyController.shared.resetAutomationPermission() }
                 }
                 .font(.caption)
                 .buttonStyle(.bordered)
                 .controlSize(.small)
-                .help("Clears the Automation permission and asks macOS to prompt again.")
+                .help("Opens System Settings → Privacy → Automation to manage Spotify access.")
             }
         }
         .padding(.horizontal, 16)

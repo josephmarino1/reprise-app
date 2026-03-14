@@ -1,0 +1,29 @@
+# Xcode build artifacts
+build/
+DerivedData/
+*.xcarchive
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# User-specific Xcode settings
+*.xcuserstate
+*.xccheckout
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude
+.claude/
+
+# Dependency managers (if added later)
+Pods/
+.build/
+Package.resolved
+
+# Secrets / env
+*.env
+*.pem
+*.p12

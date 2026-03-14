@@ -85,24 +85,15 @@ class SpotifyController {
 
     // MARK: - Permissions
 
-    /// Clears this app's Automation entry from the TCC database, then immediately
-    /// sends a harmless Apple Event so macOS re-shows the permission prompt.
+    /// Opens System Settings → Privacy & Security → Automation so the user
+    /// can review or re-grant Spotify access. (Sandboxed apps cannot run tccutil.)
     func resetAutomationPermission() async {
-        let bundleId = Bundle.main.bundleIdentifier ?? "com.reprise.app"
-
-        // tccutil reset is fast; run it on the script thread to stay off main.
-        await ScriptExecutor.shared.execute {
-            let proc = Process()
-            proc.executableURL = URL(fileURLWithPath: "/usr/bin/tccutil")
-            proc.arguments = ["reset", "AppleEvents", bundleId]
-            try? proc.run()
-            proc.waitUntilExit()
+        LogManager.shared.log("Opening System Settings → Privacy → Automation.")
+        await MainActor.run {
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Automation") {
+                NSWorkspace.shared.open(url)
+            }
         }
-
-        LogManager.shared.log("Automation permission reset — re-prompting now.")
-
-        // Trigger a real Apple Event so the new permission dialog fires immediately.
-        _ = await getStateAndTrack()
     }
 
     // MARK: - AppleScript runner
